@@ -58,7 +58,7 @@ int get_value(int offset, std::string s){
 }
 int main(int argc, char* args[]) {
     std::ifstream inFile;
-    inFile.open("course/dojo/5_stream_processing/input_day12.txt");
+    inFile.open(args[1]);
 
     if(!inFile){
         std::cout << "error reading file";

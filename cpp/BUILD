@@ -53,3 +53,27 @@ cc_binary(
     data = ["input/input_day8.txt"],
     srcs = ["day8.cpp"],
 )
+
+cc_binary(
+    name = "day10",
+    data = ["input/input_day10.txt"],
+    srcs = ["day10.cpp"],
+)
+
+cc_binary(
+    name = "day12",
+    data = ["input/input_day12.txt"],
+    srcs = ["day12.cpp"],
+)
+
+cc_binary(
+    name = "day13",
+    data = ["input/input_day13.txt"],
+    srcs = ["day13.cpp"],
+)
+
+
+cc_binary(
+    name = "day14",
+    srcs = ["day14.cpp"],
+)

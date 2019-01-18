@@ -22,9 +22,9 @@
 //    typedef std::pair<std::string, std::string> stringpair;
 //    print_checksum_day2part1("/Users/roland/Dropbox/workspace/adventofcode2018/input_day2.txt");
 //    std::vector<std::string> inputs = get_input("/Users/roland/Dropbox/workspace/adventofcode2018/input_day2.txt");
-//    
+//
 //    std::vector<stringpair> combinations = get_id_combinations(inputs);
-//    
+//
 //    auto diff_char_distance = [&](const std::string id1, const std::string id2){
 //        int distance = 0 ;
 //        for(int index = 0; index < id1.size(); index++){
@@ -37,13 +37,13 @@
 //
 //    for(stringpair combi : combinations){
 //        if (diff_char_distance(combi.first, combi.second)==1){
-//            
+//
 //            // Print the common part...
 //            for(int index_word = 0; index_word < combi.first.size(); index_word++){
 //                if(combi.first[index_word] == combi.second[index_word]){
 //                    std::cout << combi.first[index_word] ;
 //                }
-//                
+//
 //            }
 //            std::cout <<std::endl;
 //        }
@@ -67,7 +67,7 @@
 //
 //std::vector<Point> get_input(std::string filename){
 //    std::ifstream in(filename);
-//    
+//
 //    std::istream_iterator<Point> b{in};
 //    std::istream_iterator<Point> e;
 //    std::vector<Point> input(b, e);
@@ -104,20 +104,20 @@
 //    }
 //    max_x+=1;
 //    max_y+=1;
-//    
+//
 //    std::set<int> valids;
 //    int grid[max_y][max_x];
-//    
+//
 //    for(int x=0; x < coords.size(); x++){
 //        valids.insert(x);
 //    }
-//    
+//
 //    for(int x=0; x < max_x; x++){
 //        for(int y=0; y < max_y; y++){
 //            grid[y][x] = -1;
 //        }
 //    }
-//    
+//
 //    for(int x=0; x < max_x; x++){
 //        for(int y=0; y < max_y; y++){
 //            grid[y][x] = mindist({x,y}, coords);
@@ -127,16 +127,16 @@
 //                    valids.erase(valids.find(grid[y][x]));
 //                }
 //            }
-//            
+//
 //        }
 //    }
-//    
+//
 //    std::map<int,int> counts;
 //
 //    for(int v : valids){
 //        counts[v] = 0;
 //    }
-//    
+//
 //    for(int x=0; x < max_x; x++){
 //        for(int y=0; y < max_y; y++){
 //            int ic = grid[y][x];
@@ -145,7 +145,7 @@
 //            }
 //        }
 //    }
-//    
+//
 //    int max = 0;
 //    for ( auto it = counts.begin(); it != counts.end(); it++ ){
 //        max = std::max(max, it->second);
@@ -156,7 +156,7 @@
 //int b(std::vector<Point> coords){
 //    int max_x = 400;
 //    int max_y = 400;
-//    
+//
 //    int total_in_reach = 0;
 //    for(int x=0; x < max_x; x++){
 //        for(int y=0; y < max_y; y++){
@@ -188,7 +188,7 @@
 //    Tree tree;
 //    int childnodes = fuckingpop(numbers);
 //    int num_metadata = fuckingpop(numbers);
-//    
+//
 //    for (int x =0; x < childnodes; x++){
 //        tree.children.push_back(extract_data(numbers));
 //    }
@@ -201,7 +201,7 @@
 //
 //int sum_metadata(Tree tree){
 //    int summetadata = std::accumulate(begin(tree.metadata), end(tree.metadata), 0);
-//    
+//
 //    int sumchildren = 0;
 //    for(Tree child : tree.children){
 //        sumchildren += sum_metadata(child);
@@ -249,7 +249,7 @@
 //void insertAfter(Marble *current, long int value){
 //    Marble *newone = new Marble;
 //    newone->value = value;
-//    
+//
 //    newone->next = current->next;
 //    current->next = newone;
 //    newone->prev = current;
@@ -259,7 +259,7 @@
 //void removeAfter(Marble *current){
 //    current->prev->next = current->next;
 //    current->next->prev = current->prev-> next;
-//    
+//
 //    // TODO do not have memory loss...
 //}
 //
@@ -269,13 +269,13 @@
 //    first->next  = first;
 //    first->prev = first;
 //    first->value = 0;
-//    
+//
 //    Marble* current = first;
 //    std::vector<long int> scores;
 //    for(int x =0; x < num_players; x++){
 //        scores.push_back(0);
 //    }
-//    
+//
 //    for(long int marblenum=1; marblenum < last_marble+1; marblenum++){
 //        long int currentplayer = ((marblenum-1)%num_players);
 //        if(marblenum % 23 != 0){
@@ -294,7 +294,7 @@
 //            current = current->next;
 //        }
 //    }
-//    
+//
 //    long int max =0 ;
 //    for(long int score : scores){
 //        if(score > max){
@@ -312,10 +312,10 @@
 //    assert(get_score_marble_game(17,1104)==2764);
 //    assert(get_score_marble_game(21,6111)==54718);
 //    assert(get_score_marble_game(30,5807)==37305);
-//    
+//
 //    long int score1 = get_score_marble_game(486,70833);
 //    std::cout << "Score is " << score1 << std::endl;
-//    
+//
 //    long int score2 = get_score_marble_game(486,100*70833);
 //    std::cout << "Score is " << score2 << std::endl;
 //}
@@ -327,7 +327,7 @@ struct Cart{
     int dx;
     int dy;
     int orientation;
-    
+
 };
 
 typedef std::vector<Cart> cartCollection;
@@ -360,10 +360,10 @@ std::vector<char> parse_line(std::string line, int ypos, cartCollection &collect
         else{
             assert(character=='\\' || character=='|' || character=='+' || character=='/' || character=='-' || character==' ');
             trackline.push_back(character);
-            
+
         }
     }
-    
+
     return trackline;
 }
 
@@ -385,7 +385,7 @@ void make_turn(Cart &cart){
     }
     else if(cart.orientation == 2){
         // Turn left
-        
+
         if(cart.dx == 0){
             int temp = cart.dx;
             cart.dx = -1*cart.dy;
@@ -416,7 +416,7 @@ void check_crash(cartCollection &carts){
                 carts.erase(carts.begin()+ypos);
                 carts.erase(carts.begin()+xpos);
                 xpos--;
-                
+
             }
         }
     }
@@ -425,7 +425,7 @@ void tick(mazeType maze, cartCollection &carts){
     std::sort(carts.begin(), carts.end(), compareCarts);
     cartCollection loopover = carts;
     for(int index=0; index < carts.size(); index++){
-        
+
         carts[index].x += carts[index].dx;
         carts[index].y += carts[index].dy;
         char thinghere = maze[carts[index].y][carts[index].x];
@@ -433,7 +433,7 @@ void tick(mazeType maze, cartCollection &carts){
             // (0, 1) -> (1, 0)
             // (-1, 0) -> (0, -1)
             std::swap(carts[index].dx, carts[index].dy);
-            
+
         }
         else if(thinghere == '/'){
             // (0, -1) -> (1, 0)
@@ -466,7 +466,7 @@ void draw_maze_and_carts(mazeType maze, cartCollection carts){
 
 int main(int arc, const char* argv[]){
 //  std::ifstream in("/Users/roland/Dropbox/workspace/adventofcode2018/python/untitled2.txt");
-    std::ifstream in("/Users/roland/Dropbox/workspace/adventofcode2018/python/input_day13.txt");
+    std::ifstream in(argv[1]);
     std::string line;
     cartCollection carts;
     mazeType maze;
@@ -476,7 +476,7 @@ int main(int arc, const char* argv[]){
         maze.push_back(toap);
         ypos++;
     }
-    
+
     for(int x=0; x<1000000; x++){
 //        draw_maze_and_carts(maze, carts);
         tick(maze, carts);
