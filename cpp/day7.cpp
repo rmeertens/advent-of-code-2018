@@ -143,75 +143,75 @@ void partb(std::vector<DependencyAndLetter> letter_prio){
 
     std::cout << "Done after seconds: " << second << std::endl;
 }
-//int main(int argc, char* args[]){
-//    std::ifstream inFile;
-//    inFile.open("course/dojo/5_stream_processing/input_day7.txt");
-//    std::vector<Dependency> data_in(std::istream_iterator<Dependency>{inFile}, std::istream_iterator<Dependency>{});
-//    std::set<char> knowncharacters;
-//    for(auto d : data_in){
-//        knowncharacters.insert(d.first);
-//        knowncharacters.insert(d.second);
-//    }
-//    std::vector<DependencyAndLetter> letter_prio;
-//    for(char letter : knowncharacters){
-//        DependencyAndLetter temp;
-//        temp.letter = letter;
-//        temp.vec = get_dependencys(letter, data_in);
-//
-//        letter_prio.push_back(temp);
-//    }
-//
-//    std::string resparta = parta(letter_prio);
-//    std::cout << "Part a: " << resparta << std::endl;
-//    if(resparta != "DFOQPTELAYRVUMXHKWSGZBCJIN"){
-//        throw "You fucked up son";
-//    }
-//    partb(letter_prio);
-//}
-//
+int main(int argc, char* args[]){
+   std::ifstream inFile;
+   inFile.open(args[1]);
+   std::vector<Dependency> data_in(std::istream_iterator<Dependency>{inFile}, std::istream_iterator<Dependency>{});
+   std::set<char> knowncharacters;
+   for(auto d : data_in){
+       knowncharacters.insert(d.first);
+       knowncharacters.insert(d.second);
+   }
+   std::vector<DependencyAndLetter> letter_prio;
+   for(char letter : knowncharacters){
+       DependencyAndLetter temp;
+       temp.letter = letter;
+       temp.vec = get_dependencys(letter, data_in);
 
+       letter_prio.push_back(temp);
+   }
 
-
-
-
-
-class MyFixture : public benchmark::Fixture
-{
-public:
-    MyFixture(){
-
-    }
-
-};
-
-BENCHMARK_DEFINE_F(MyFixture, MyMethod)(benchmark::State& state)
-{
-    std::ifstream inFile;
-    inFile.open("course/dojo/5_stream_processing/input_day7.txt");
-    std::vector<Dependency> data_in(std::istream_iterator<Dependency>{inFile}, std::istream_iterator<Dependency>{});
-    std::set<char> knowncharacters;
-    for(auto d : data_in){
-        knowncharacters.insert(d.first);
-        knowncharacters.insert(d.second);
-    }
-    std::vector<DependencyAndLetter> letter_prio;
-    for(char letter : knowncharacters){
-        DependencyAndLetter temp;
-        temp.letter = letter;
-        temp.vec = get_dependencys(letter, data_in);
-
-        letter_prio.push_back(temp);
-    }
-
-
-
-    for (auto _ : state)
-    {
-        std::string resparta = parta(letter_prio);
-    }
-
+   std::string resparta = parta(letter_prio);
+   std::cout << "Part a: " << resparta << std::endl;
+   if(resparta != "DFOQPTELAYRVUMXHKWSGZBCJIN"){
+       throw "You fucked up son";
+   }
+   partb(letter_prio);
 }
 
 
-BENCHMARK_REGISTER_F(MyFixture, MyMethod)->Unit(benchmark::kMillisecond);
-BENCHMARK_MAIN();
+
+
+
+//
+//
+// class MyFixture : public benchmark::Fixture
+// {
+// public:
+//     MyFixture(){
+//
+//     }
+//
+// };
+//
+// BENCHMARK_DEFINE_F(MyFixture, MyMethod)(benchmark::State& state)
+// {
+//     std::ifstream inFile;
+//     inFile.open("course/dojo/5_stream_processing/input_day7.txt");
+//     std::vector<Dependency> data_in(std::istream_iterator<Dependency>{inFile}, std::istream_iterator<Dependency>{});
+//     std::set<char> knowncharacters;
+//     for(auto d : data_in){
+//         knowncharacters.insert(d.first);
+//         knowncharacters.insert(d.second);
+//     }
+//     std::vector<DependencyAndLetter> letter_prio;
+//     for(char letter : knowncharacters){
+//         DependencyAndLetter temp;
+//         temp.letter = letter;
+//         temp.vec = get_dependencys(letter, data_in);
+//
+//         letter_prio.push_back(temp);
+//     }
+//
+//
+//
+//     for (auto _ : state)
+//     {
+//         std::string resparta = parta(letter_prio);
+//     }
+//
+// }
+//
+//
+// BENCHMARK_REGISTER_F(MyFixture, MyMethod)->Unit(benchmark::kMillisecond);
+// BENCHMARK_MAIN();
