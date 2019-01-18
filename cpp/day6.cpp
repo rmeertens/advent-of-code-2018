@@ -1,3 +1,10 @@
+#include <fstream>
+#include <vector>
+#include <map>
+#include <iostream>
+#include <set>
+
+
 struct Point{
     int x;
     int y;
@@ -12,7 +19,7 @@ std::istream &operator>>(std::istream &in, Point &x) {
 
 std::vector<Point> get_input(std::string filename){
     std::ifstream in(filename);
-    
+
     std::istream_iterator<Point> b{in};
     std::istream_iterator<Point> e;
     std::vector<Point> input(b, e);
@@ -42,7 +49,7 @@ int mindist(Point point, std::vector<Point> coords){
 }
 
 int a(std::vector<Point> coords){
-    
+
     int max_x = 0;
     int max_y = 0;
     for(auto p : coords){
@@ -51,20 +58,20 @@ int a(std::vector<Point> coords){
     }
     max_x+=1;
     max_y+=1;
-    
+
     std::set<int> valids;
     int grid[max_y][max_x];
-    
+
     for(int x=0; x < coords.size(); x++){
         valids.insert(x);
     }
-    
+
     for(int x=0; x < max_x; x++){
         for(int y=0; y < max_y; y++){
             grid[y][x] = -1;
         }
     }
-    
+
     for(int x=0; x < max_x; x++){
         for(int y=0; y < max_y; y++){
             grid[y][x] = mindist({x,y}, coords);
@@ -74,16 +81,16 @@ int a(std::vector<Point> coords){
                     valids.erase(valids.find(grid[y][x]));
                 }
             }
-            
+
         }
     }
-    
+
     std::map<int,int> counts;
 
     for(int v : valids){
         counts[v] = 0;
     }
-    
+
     for(int x=0; x < max_x; x++){
         for(int y=0; y < max_y; y++){
             int ic = grid[y][x];
@@ -92,7 +99,7 @@ int a(std::vector<Point> coords){
             }
         }
     }
-    
+
     int max = 0;
     for ( auto it = counts.begin(); it != counts.end(); it++ ){
         max = std::max(max, it->second);
@@ -103,7 +110,7 @@ int a(std::vector<Point> coords){
 int b(std::vector<Point> coords){
     int max_x = 400;
     int max_y = 400;
-    
+
     int total_in_reach = 0;
     for(int x=0; x < max_x; x++){
         for(int y=0; y < max_y; y++){
@@ -120,9 +127,9 @@ int b(std::vector<Point> coords){
 }
 
 int main(int argc, const char * argv[]) {
-    std::vector<Point> input = get_input("/Users/roland/Dropbox/workspace/adventofcode2018/input_day6.txt");
+    std::vector<Point> input = get_input(argv[1]);
     std::cout << "Part a: " << a(input) << std::endl;
     std::cout << "Part b: " << b(input) << std::endl;
-    
+
     return 0;
 }
