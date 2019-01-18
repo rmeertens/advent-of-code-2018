@@ -37,7 +37,7 @@ int sum_metadata(Tree tree){
     for(int x : tree.metadata){
         summetadata += x;
     }
-    
+
     int sumchildren = 0;
     for(Tree child : tree.children){
         sumchildren += sum_metadata(child);
@@ -68,7 +68,7 @@ int second_sum(Tree tree){
 int main(int argc, const char * argv[]) {
     int nextnum;
     std::ifstream inFile;
-    inFile.open("/Users/roland/Dropbox/workspace/adventofcode2018/python/input_day8.txt");
+    inFile.open(argv[1]);
     std::vector<int> input;
     while(inFile >> nextnum){
         input.push_back(nextnum);

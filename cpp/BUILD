@@ -47,3 +47,9 @@ cc_binary(
     ],
     srcs = ["day7.cpp"],
 )
+
+cc_binary(
+    name = "day08",
+    data = ["input/input_day8.txt"],
+    srcs = ["day8.cpp"],
+)
